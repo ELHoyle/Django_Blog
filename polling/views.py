@@ -3,7 +3,9 @@ from django.http import Http404
 from polling.models import Poll
 
 def list_view(request):
-    context = {'polls': Poll.objects.all()}
+    context = {'polls': Poll.objects.all(),
+                'title':'Polls',
+                }
     return render(request, 'polling/list.html', context)
 
 def detail_view(request, poll_id):
@@ -18,6 +20,8 @@ def detail_view(request, poll_id):
         else:
             poll.score -=1
         poll.save()
-    context = {'poll':poll}
+    context = {'poll':poll,
+                'title': poll.title,
+                }
     return render(request, 'polling/detail.html', context)
 # Create your views here.
