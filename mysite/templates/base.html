@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="shortcut icon" href="{% static 'favicon.png' %}"/>
+        <link rel="shortcut icon" href="{% static 'favicon3.png' %}"/>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +19,18 @@
     </head>
     <body>
         <div id="header">  {# header begins here #}
+        <img src="{% static 'favicon3.png' %}" alt="logo" class = "logo", width="97", height="97">
             <ul id="control-bar">
-            <h2>Django Blog</h2>
+            <h1>Django Blog</h1>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Subscribe</a></li>
+                <li><a href="{% url 'blog_index' %}">Blog Home</a></li>
+                <li><a href="{% url 'poll_index' %}">Polls</a></li>
             {% if user.is_authenticated %}
-            {% if user.is_staff %}<li><a href="{% url 'admin:index' %}">admin</a></li>{% endif %}
-              <li><a href="{% url 'logout' %}">logout</a></li>
+                <li><a href="{% url 'logout' %}">Logout</a></li>
+            {% if user.is_staff %}
+                <li><a href="{% url 'admin:index' %}">Admin</a></li>{% endif %}
+                
             {% else %}
               <li><a href="{% url 'login' %}">login</a></li>
             {% endif %}
@@ -34,7 +41,7 @@
             <div id="content">
                 {% block content %}
                 [content will go here]
-                {% endblock %}
+                {% endblock content %}
             </div>
         </div>
         

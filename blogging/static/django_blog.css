@@ -8,13 +8,17 @@ body {
 #container {
     margin: 20px 50px 20px;
     padding:20px;
-    margin-top: 20px;
+    margin-top: 0px;
 }
 #header {
     background-color: rgb(92, 155, 222);
-    border-bottom: 1px solid rgb(255, 255, 255);
-    margin:0;
-    padding:0;
+    border-bottom: 0px solid rgb(255, 255, 255);
+    margin:0px;
+    padding:10px;
+}
+.logo {
+    float: left;
+    margin-right: 10px;
 }
 #control-bar {
     margin: 0em 0em 1em;
@@ -23,7 +27,7 @@ body {
     text-align: left;
     color: rgb(255, 255, 255);
     font-size: 80%;
-    padding-bottom: 0.4em;
+    padding-bottom: 0.2em;
 }
 #control-bar li {
     display: inline-flex;
@@ -34,7 +38,7 @@ body {
     text-decoration: none;
 }
 #control-bar li a:hover {
-    color: #cce;
+    color: rgb(31, 31, 37);
 }
 #content {
     margin: 10px;
