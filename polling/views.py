@@ -4,11 +4,6 @@ from polling.models import Poll
 from django.views.generic.list import ListView 
 from django.views.generic.detail import DetailView
 
-# def list_view(request):
-#     context = {'polls': Poll.objects.all(),
-#                 'title':'Polls',
-#                 }
-#     return render(request, 'polling/list.html', context)
 
 class PollListView(ListView):
     model = Poll

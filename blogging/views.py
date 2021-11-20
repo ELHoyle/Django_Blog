@@ -17,6 +17,15 @@ class PostDetailView(DetailView):
     published=queryset
     template_name = 'blogging/detail.html'
 
+def about_view(request):
+    description = """This blog was created using the Django web framework by Eric Hoyle as 
+    the culmination of a year long study of python programming through the UW 
+    Professional and Continuing Education Programming in Python certificate
+    course.
+    """
+    context = {'description':description} 
+    return render(request, "blogging/about.html", context)
+
 
 
 

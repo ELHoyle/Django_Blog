@@ -3,20 +3,27 @@
   {% comment %} here is where the query happens {% endcomment %}
   {% for post in post_list %}
   <div class="post">
-    <h2>
-      <a href="{% url 'blog_detail' post.pk %}">{{ post }}</a>
-    </h2>
+    <h4>
+      <a href="{% url 'blog_detail' post.pk %}" style="color: rgb(92, 155,  222)">{{ post }}</a>
+    </h4>
     <p class="byline">
       Posted by {{ post.author.username }} &mdash; {{ post.published_date }}
     </p>
     <div class="post-body">
       {{ post.text }}
     </div>
-    <ul class="categories">
+    <div class="category_list">
+      <p>
+      <ul class="categories">
+        Categories:
       {% for category in post.categories.all %}
-        <li>{{ category }}</li>
+        <li> {{ category }}</li>
       {% endfor %}
+      </ul>
+      </p>
+    </div>
     </ul>
+
   </div>
   {% endfor %}
 {% endblock %}

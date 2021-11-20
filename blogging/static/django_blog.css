@@ -2,23 +2,23 @@ body {
     background-color: rgb(255, 255, 255);
     color: #111;
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-    margin: 10px 50px 20px;
+    margin: 0em 0em 0em;
     padding:0px;
 }
 #container {
-    margin: 20px 50px 20px;
-    padding:20px;
+    margin: 0em 2em 20em;
+    padding:2em;
     margin-top: 0px;
 }
 #header {
     background-color: rgb(92, 155, 222);
-    border-bottom: 0px solid rgb(255, 255, 255);
-    margin:0px;
-    padding:10px;
+    border-bottom: 0em solid rgb(255, 255, 255);
+    margin:0em;
+    padding:0.5em;
 }
 .logo {
     float: left;
-    margin-right: 10px;
+    margin-right: 2em;
 }
 #control-bar {
     margin: 0em 0em 1em;
@@ -41,7 +41,7 @@ body {
     color: rgb(31, 31, 37);
 }
 #content {
-    margin: 10px;
+    margin: 0;
 }
 
 ul#entries {
@@ -58,7 +58,7 @@ ul#entries li:first-child div.entry {
     margin-top: 0em;
 }
 div.entry-body {
-    margin-left: 2em;
+    margin-left: 1em;
 }
 .notification {
     float: right;
@@ -72,6 +72,8 @@ div.entry-body {
 ul.categories {
     list-style: none;
     list-style-type: none;
+    margin: 0;
+    padding: 0em;
 }
 ul.categories li {
     display: inline;
