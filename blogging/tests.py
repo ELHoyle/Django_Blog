@@ -12,7 +12,7 @@ class PostTestCase(TestCase):
         self.user=User.objects.get(pk=1)
 
     def test_string_representation(self):
-        expected = "This Is a Title"
+        expected = "This Is A Title"
         p1=Post(title=expected)
         actual=str(p1)
         self.assertEqual(expected, actual)
