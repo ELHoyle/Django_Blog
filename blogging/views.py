@@ -15,14 +15,14 @@ def add_post(request):
         post_form = PostForm(request.POST)
         category_form = CategoryForm(request.POST)
         if post_form.is_valid() and category_form.is_valid():
+            category = category_form.save()
             post = post_form.save(commit=False)
             post.author = request.user
             post.created_date = timezone.now()
             post.published_date = timezone.now()
             post.save()
-            category = category_form.save()
-            category.posts.set(post)
-            category.save()
+            category.posts.add(post)
+
             return redirect("/")
     else:
         post = PostForm()
