@@ -1,11 +1,33 @@
 from django.db.models.query import QuerySet
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 from django.http import HttpResponse
 from blogging.models import Post
 from django.http import Http404
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
+from blogging.forms import PostForm, CategoryForm
+from django.utils import timezone
+
+
+def add_post(request):
+    if request.method == "POST":
+        post_form = PostForm(request.POST)
+        category_form = CategoryForm(request.POST)
+        if post_form.is_valid() and category_form.is_valid():
+            post = post_form.save(commit=False)
+            post.author = request.user
+            post.created_date = timezone.now()
+            post.published_date = timezone.now()
+            post.save()
+            category = category_form.save()
+            category.posts.set(post)
+            category.save()
+            return redirect("/")
+    else:
+        post = PostForm()
+        category = CategoryForm()
+        return render(request, "blogging/add_post.html", {"forms": [post, category]})
 
 
 class PostListView(ListView):

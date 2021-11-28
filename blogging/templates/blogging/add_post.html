@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<form method ="post">
+    {% csrf_token %} 
+    {% for form in forms %}
+    <li>
+        {{ form.as_p }}
+    </li>
+    {% endfor %}
+    <button class="btn btn-primary">New Post</button> 
+</form>
+{% endblock content %} 
