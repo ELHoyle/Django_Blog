@@ -22,24 +22,31 @@
         <img src="{% static 'favicon3.png' %}" alt="logo" class = "logo", width="97", height="97">
             <ul id="control-bar">
             <h1>Django Blog</h1>
-                <li><a href="{% url 'blog_about' %}">About</a></li>
-                <li><a href="#">Subscribe</a></li>
+            {% if user.is_authenticated %}
                 <li><a href="{% url 'blog_index' %}">Blog Home</a></li>
                 <li><a href="{% url 'poll_index' %}">Polls</a></li>
-            {% if user.is_authenticated %}
                 <li><a href="{% url 'logout' %}">Logout</a></li>
                 <li><a href="{%url 'add_post' %}">Post</a></li>
             {% if user.is_staff %}
                 <li><a href="{% url 'admin:index' %}">Admin</a></li>{% endif %}
-                
             {% else %}
-              <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li>  
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'blog_about' %}">About</a></li>
+              
             {% endif %}
             </ul>
         </div>      
   </div>             
             <div id="container">
-            <div id="content">
+            <div id="content", class="col-md-4">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
                 {% block content %}
                 [content will go here]
                 {% endblock content %}
