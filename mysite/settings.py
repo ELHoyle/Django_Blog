@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "polling",
     "blogging",
+    "users.apps.UsersConfig",
+    "crispy_forms",
 ]
 
 MIDDLEWARE = [
@@ -122,3 +124,4 @@ USE_TZ = True
 STATIC_URL = "/static/"
 LOGIN_URL = "/login/"
 LOGIN_REDIRECT_URL = "/"
+CRISPY_TEMPLATE_PACK = "bootstrap4"
