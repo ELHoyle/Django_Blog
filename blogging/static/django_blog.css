@@ -9,7 +9,6 @@ body {
     margin: 0em 2em 2em;
     padding:2em;
     margin-top: 0px;
-    width: 500px;
 }
 #header {
     background-color: rgb(92, 155, 222);
@@ -43,7 +42,7 @@ body {
 }
 #content {
     margin: 0;
-    width: 50px;
+    width: 500px;
 }
 
 ul#entries {
