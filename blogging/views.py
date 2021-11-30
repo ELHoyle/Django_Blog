@@ -8,8 +8,11 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from blogging.forms import PostForm, CategoryForm
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 
+@login_required
 def add_post(request):
     if request.method == "POST":
         post_form = PostForm(request.POST)
@@ -30,6 +33,7 @@ def add_post(request):
         return render(request, "blogging/add_post.html", {"forms": [post, category]})
 
 
+@method_decorator(login_required, name="dispatch")
 class PostListView(ListView):
     queryset = Post.objects.exclude(published_date__exact=None).order_by(
         "-published_date"
@@ -38,6 +42,7 @@ class PostListView(ListView):
     template_name = "blogging/list.html"
 
 
+@method_decorator(login_required, name="dispatch")
 class PostDetailView(DetailView):
     queryset = Post.objects.exclude(published_date__exact=None)
     published = queryset
