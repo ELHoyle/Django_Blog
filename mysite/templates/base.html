@@ -23,15 +23,15 @@
             <ul id="control-bar">
             <h1>Django Blog</h1>
             {% if user.is_authenticated %}
-                <li><a href="{% url 'blog_index' %}">Blog Home</a></li>
+                <li><a href="{% url 'blog_index' %}">Home</a></li>
+                <li><a href="{%url 'add_post' %}">Create Post</a></li>
                 <li><a href="{% url 'poll_index' %}">Polls</a></li>
                 <li><a href="{% url 'logout' %}">Logout</a></li>
-                <li><a href="{%url 'add_post' %}">Post</a></li>
             {% if user.is_staff %}
                 <li><a href="{% url 'admin:index' %}">Admin</a></li>{% endif %}
             {% else %}
-                <li><a href="{% url 'register' %}">Register</a></li>  
                 <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register' %}">Register</a></li> 
                 <li><a href="{% url 'blog_about' %}">About</a></li>
               
             {% endif %}

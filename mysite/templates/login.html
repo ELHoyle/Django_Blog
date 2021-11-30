@@ -5,5 +5,8 @@
 <form action="" method="POST">{% csrf_token %}
   {{ form.as_p }}
   <p><input type="submit" value="Log In"></p>
+  <small class="text-muted">
+    Don't Have an Account? <a class="ml-2" href="{% url 'register' %}">Register</a>
+</small>
 </form>
 {% endblock %}
