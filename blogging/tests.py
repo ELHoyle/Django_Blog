@@ -36,6 +36,7 @@ class FrontEndTestCase(TestCase):
     ]
 
     def setUp(self):
+        self.client.force_login(User.objects.get_or_create(username="testuser")[0])
         self.now = datetime.datetime.utcnow().replace(tzinfo=utc)
         self.timedelta = datetime.timedelta(15)
         author = User.objects.get(pk=1)
